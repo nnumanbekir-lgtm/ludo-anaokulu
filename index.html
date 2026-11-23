@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ludo Anaokulu · Beştepe</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="T.C. MEB Özel Ludo Anaokulu, Beştepe / Yenimahalle. Liderlik, Uyum, Deha Okulu; branş destekli eğitim, spor, sanat ve bilim dengesi.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+/* Ludo = Liderlik · Uyum · Deha · Okulu, and the board game. Signature: L-U-D-O letter tiles that flip to reveal the acronym; a playable ludo board — roll the die, the token walks the school's squares (spor, sanat, bilim, VR, beslenme…) */
+:root{--bg:#fbf8f1;--paper:#fff;--ink:#22302a;--muted:#5c6862;--red:#e2463c;--blue:#2f7ad8;--yellow:#f5b82e;--green:#4b9a4d;--green-d:#3a7c3c;--green-soft:#e5f1e2;--cream:#f4ecdc;--line:#e9e1d1;
+--disp:'Lilita One',system-ui,sans-serif;--body:'Nunito',system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.wrap{max-width:1140px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--disp);font-weight:400;line-height:1.06;margin:0;text-wrap:balance;letter-spacing:.01em}
+p{margin:0}a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.num{font-variant-numeric:tabular-nums}
+.ph{background:#ffe15a;color:var(--ink);border-radius:6px;padding:0 6px}
+[hidden]{display:none!important}
+.preview{background:var(--ink);color:#eef3ef;font-size:13px}
+.preview .wrap{display:flex;justify-content:space-between;gap:6px 16px;flex-wrap:wrap;padding-block:8px}
+.preview b{color:var(--yellow)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-block:14px}
+.logo{display:flex;flex-direction:column;text-decoration:none;line-height:1;min-width:0}
+.logo b{font-family:var(--disp);font-size:2rem;letter-spacing:.04em}
+.logo b span:nth-child(1){color:var(--red)}.logo b span:nth-child(2){color:var(--blue)}.logo b span:nth-child(3){color:var(--yellow)}.logo b span:nth-child(4){color:var(--green)}
+.logo small{font-size:11px;font-weight:800;color:var(--muted);letter-spacing:.18em}
+.nl{display:flex;gap:22px;font-weight:800;font-size:15px;align-items:center}
+.nl a:not(.btn){text-decoration:none;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;background:var(--green);color:#fff;text-decoration:none;font:inherit;font-weight:800;font-size:16px;padding:13px 22px;border-radius:999px;border:0;cursor:pointer;box-shadow:0 4px 0 var(--green-d)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--green-d)}
+.btn.lt{background:var(--paper);color:var(--ink);box-shadow:inset 0 0 0 2px var(--line)}
+.btn.r{background:var(--red);box-shadow:0 4px 0 #b9332b}
+.hero{padding-block:14px 60px}
+.hg{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
+.hg>*{min-width:0}
+.chip{display:inline-flex;gap:8px;align-items:center;background:var(--green-soft);color:var(--green-d);border-radius:999px;padding:6px 14px;font-weight:800;font-size:14px}
+.hero h1{font-size:clamp(2.5rem,6.2vw,4.4rem);margin-top:16px}
+.hero h1 em{font-style:normal;color:var(--green)}
+.hero .s{font-size:1.15rem;color:var(--muted);margin-top:16px;max-width:48ch}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.facts{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.facts span{font-weight:800;font-size:14px;padding:6px 14px;border-radius:12px;background:var(--b);color:var(--c)}
+/* LUDO tiles */
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.tile{font:inherit;border:0;padding:0;background:none;cursor:pointer;perspective:800px;aspect-ratio:1;color:inherit}
+.ti{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.tile[aria-pressed="true"] .ti{transform:rotateY(180deg)}
+.fc{position:absolute;inset:0;border-radius:26px;backface-visibility:hidden;display:grid;place-items:center;padding:14px;text-align:center}
+.fr{background:var(--c);color:#fff;font-family:var(--disp);font-size:clamp(4rem,11vw,7rem);box-shadow:inset 0 -10px 0 rgba(0,0,0,.15)}
+.bk{background:var(--paper);border:5px solid var(--c);transform:rotateY(180deg)}
+.bk b{font-family:var(--disp);font-size:clamp(1.4rem,3vw,1.9rem);color:var(--c);display:block}
+.bk span{font-size:clamp(12.5px,1.6vw,14.5px);font-weight:700;color:var(--muted);line-height:1.35;display:block;margin-top:4px}
+.thint{text-align:center;font-weight:800;font-size:14px;color:var(--muted);margin-top:10px}
+section{padding-block:clamp(56px,8vw,96px)}
+.head{display:grid;gap:10px;margin-bottom:30px;max-width:64ch}
+.head h2{font-size:clamp(2.1rem,5vw,3.2rem)}
+.head p{color:var(--muted);font-size:1.05rem}
+.eb{font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+/* board */
+.game{background:var(--paper);border-block:1px solid var(--line)}
+.bg2{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center}
+.bg2>*{min-width:0}
+.board{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(5,1fr);gap:6px;width:min(470px,100%);aspect-ratio:1;background:var(--cream);padding:10px;border-radius:26px;margin-inline:auto;position:relative}
+.sq{border-radius:14px;background:var(--c);display:grid;place-items:center;position:relative;font-size:clamp(20px,5vw,30px);box-shadow:inset 0 -5px 0 rgba(0,0,0,.14)}
+.sq.v{outline:3px solid var(--ink);outline-offset:-3px}
+.sq .tk{position:absolute;width:44%;aspect-ratio:1;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:#fff;border:4px solid var(--ink);top:-14%;left:28%;animation:hop .3s ease;box-shadow:0 4px 0 rgba(0,0,0,.2)}
+@keyframes hop{50%{transform:translateY(-8px)}}
+.center{grid-row:2/5;grid-column:2/5;background:var(--paper);border-radius:18px;display:grid;place-items:center;align-content:center;gap:10px;padding:10px;text-align:center}
+.die{font:inherit;width:84px;height:84px;border-radius:20px;border:0;background:var(--paper);box-shadow:0 0 0 4px var(--ink),0 6px 0 4px var(--ink);font-size:56px;line-height:1;cursor:pointer;display:grid;place-items:center;color:var(--ink)}
+.die.roll{animation:roll .5s ease}
+@keyframes roll{50%{transform:rotate(180deg) scale(.85)}}
+.center small{font-weight:800;color:var(--muted);font-size:13px}
+.gcard{background:var(--cs,var(--green-soft));border-radius:28px;padding:28px;display:grid;gap:10px;transition:background .35s}
+.gcard .ic{font-size:46px;line-height:1}
+.gcard .stp{justify-self:start;font-weight:800;font-size:13px;background:var(--paper);border-radius:99px;padding:3px 12px}
+.gcard h3{font-size:2rem;color:var(--c,var(--green-d))}
+.gcard p{color:var(--muted)}
+.prog{font-weight:800;color:var(--green-d);font-size:14px}
+.note{font-size:13.5px;color:var(--muted);margin-top:14px}
+/* balance */
+.bal{background:var(--green);color:#f1f8ef}
+.bal h2{font-size:clamp(2rem,4.6vw,3rem)}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:24px}
+.tc{background:rgba(255,255,255,.13);border-radius:24px;padding:22px;display:grid;gap:8px}
+.tc .big{font-size:40px;line-height:1}
+.tc h3{font-size:1.6rem}
+.tc p{color:#dcefd9;font-size:15px}
+.why{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.wy{background:var(--paper);border:2px solid var(--line);border-radius:26px;padding:24px;display:grid;gap:10px}
+.wy .big{font-size:38px;line-height:1}
+.wy h3{font-size:1.4rem}
+.wy p{color:var(--muted);font-size:15px}
+.hrs{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+.hd{background:var(--paper);border:2px solid var(--line);border-radius:16px;padding:12px 6px;text-align:center;display:grid;gap:2px}
+.hd b{font-family:var(--disp);font-size:1.15rem;font-weight:400}
+.hd span{font-size:13px;color:var(--muted);font-weight:700}
+.hd.today{border-color:var(--green);background:var(--green-soft)}
+.hd.off{opacity:.55}
+.faq{max-width:840px}
+.faq details{background:var(--paper);border:2px solid var(--line);border-radius:18px;padding:16px 20px;margin-bottom:10px}
+.faq summary{font-family:var(--disp);font-size:1.2rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";color:var(--red);font-size:1.5rem;line-height:1}
+.faq details[open] summary:after{content:"–"}
+.faq p{color:var(--muted);margin-top:8px}
+.contact{background:var(--ink);color:#eef3ef}
+.cg{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:start}
+.cg>*{min-width:0}
+.contact h2{font-size:clamp(2.1rem,5vw,3.2rem)}
+.contact h2 span{color:var(--yellow)}
+.contact .s{color:#c7d2cb;margin-top:14px;max-width:44ch}
+.contact .eb{color:var(--yellow)}
+.info{margin-top:24px;display:grid;border-top:1px solid #3d4b44}
+.info div{display:grid;grid-template-columns:110px 1fr;gap:12px;padding-block:14px;border-bottom:1px solid #3d4b44}
+.info span{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#a4b2aa}
+.info b{font-weight:700;word-break:break-word}
+.info a{color:var(--yellow)}
+form{background:var(--paper);color:var(--ink);border-radius:28px;padding:24px;display:grid;gap:12px}
+form h3{font-size:1.9rem;color:var(--green-d)}
+.f{display:grid;gap:5px}.f label{font-size:14px;font-weight:800;color:var(--muted)}
+select,input:not([type=checkbox]),textarea{font:inherit;font-size:16px;padding:12px 14px;border:2px solid var(--line);border-radius:14px;background:var(--paper);color:var(--ink);width:100%;min-width:0}
+select:focus,input:not([type=checkbox]):focus,textarea:focus{border-color:var(--green);outline:none}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.kv{display:flex;gap:10px;font-size:14px;color:var(--muted);align-items:flex-start}
+.kv input{width:18px;height:18px;margin-top:3px;accent-color:var(--green);flex:none}
+.ok{background:var(--green-soft);color:var(--green-d);border-radius:14px;padding:12px 14px;font-weight:700}
+.ok .btn{margin-top:8px}
+.er{color:#b23a2c;font-weight:700;font-size:14px}
+footer{background:var(--ink);color:#a4b2aa;font-size:14px;border-top:1px solid #3d4b44}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:22px}
+@media (max-width:900px){
+ .hg,.bg2,.cg{grid-template-columns:1fr}
+ .three,.why{grid-template-columns:1fr}
+ .hrs{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .nl a:not(.btn){display:none}
+ .tiles{max-width:420px;margin-inline:auto;width:100%}
+}
+@media (max-width:560px){
+ .r2{grid-template-columns:1fr}
+ .die{width:64px;height:64px;font-size:44px}
+ .center small{font-size:11.5px}
+ .gcard{padding:22px}.gcard h3{font-size:1.7rem}
+ .info div{grid-template-columns:1fr;gap:2px}.nl .btn{padding:10px 14px;font-size:14px}
+}
+</style></head><body>
+
+<div class="preview"><div class="wrap"><span><b>Önizleme.</b> Bu sayfa Özel Ludo Anaokulu için hazırlanmış taslak bir tasarımdır.</span><span>Sarı işaretli bilgiler sizin onayınızla güncellenecektir.</span></div></div>
+
+<nav><div class="wrap">
+<a class="logo" href="#"><b><span>L</span><span>U</span><span>D</span><span>O</span></b><small>ANAOKULU · BEŞTEPE</small></a>
+<div class="nl"><a href="#oyun">Ludo oyna</a><a href="#denge">Spor · Sanat · Bilim</a><a href="#saatler">Saatler</a><a class="btn" href="#iletisim">Ön kayıt</a></div>
+</div></nav>
+
+<header class="hero"><div class="wrap hg">
+<div>
+<span class="chip">🌿 T.C. MEB Özel Ludo Anaokulu · Beştepe</span>
+<h1>Liderlik, uyum ve deha <em>okulu.</em></h1>
+<p class="s">Branş destekli eğitimle spor, sanat ve bilimi dengeleyen; her çocuğu kendi çocuğu gibi seven yepyeni bir okul. Nasıl bir nesil yetiştirdiğimizi görmek için Beştepe'ye bekliyoruz.</p>
+<div class="cta"><a class="btn" href="#iletisim">Okulu ziyaret edin</a><a class="btn lt" href="#oyun">Zarı atın, okulu gezin</a></div>
+<div class="facts"><span style="--b:#fde3e1;--c:#b9332b">🤸 Spor</span><span style="--b:#e1ecfb;--c:#1f5fb0">🎨 Sanat</span><span style="--b:#fdf0cf;--c:#946600">🔬 Bilim</span><span style="--b:var(--green-soft);--c:var(--green-d)">🎓 Branş destekli eğitim</span></div>
+</div>
+<div><div class="tiles" id="tiles"></div><p class="thint">Harflere dokunun: LUDO ne demek?</p></div>
+</div></header>
+
+<section class="game" id="oyun"><div class="wrap">
+<div class="head"><p class="eb">Ludo oynayalım!</p><h2>Zarı atın, okulumuzu gezin</h2><p>Adımız bir oyundan geliyor. Zarı atın, piyonunuz ilerledikçe okulumuzun bir köşesini keşfedin. Tüm kareleri gezebilecek misiniz?</p></div>
+<div class="bg2">
+<div class="board" id="board"><div class="center"><button class="die" type="button" id="die" aria-label="Zarı at">🎲</button><small id="dmsg">Zarı atmak için dokunun</small></div></div>
+<div class="gcard" id="gc" aria-live="polite"><span class="stp num" id="gs">Başlangıç</span><span class="ic" id="gi">🏁</span><h3 id="gh">Okulumuza hoş geldiniz!</h3><p id="gp">Piyonunuz kapımızda bekliyor. Zarı atın ve yola çıkın.</p><span class="prog num" id="gpr"></span></div>
+</div>
+<p class="note"><span class="ph">Doktor, beslenme ve kurum anlaşması detayları okulla birlikte güncellenecek</span></p>
+</div></section>
+
+<section class="bal" id="denge"><div class="wrap">
+<p class="eb" style="color:var(--yellow)">Branş destekli eğitim</p><h2>Spor · Sanat · Bilim dengesi</h2>
+<div class="three">
+<div class="tc"><span class="big" aria-hidden="true">🤸</span><h3>Spor</h3><p>Hareketle gelişen beden, özgüvenle gelişen karakter. Denge, koordinasyon, takım ruhu. <span class="ph">Branşlar eklenecek</span></p></div>
+<div class="tc"><span class="big" aria-hidden="true">🎨</span><h3>Sanat</h3><p>Boya, müzik, drama. Kendini ifade eden, hayal gücü kanatlanan çocuklar.</p></div>
+<div class="tc"><span class="big" aria-hidden="true">🔬</span><h3>Bilim</h3><p>Deneyler ve sanal gerçeklik gözlükleriyle merakı keşfe dönüştürüyoruz.</p></div>
+</div></div></section>
+
+<section><div class="wrap">
+<div class="head"><p class="eb">Neden Ludo?</p><h2>Velilerimizin en çok söylediği üç şey</h2></div>
+<div class="why">
+<div class="wy"><span class="big" aria-hidden="true">🛡️</span><h3>Her ayrıntıda güvenlik</h3><p>Binamız çocukların güvenliği düşünülerek, en küçük ayrıntısına kadar planlandı. Pırıl pırıl ve hijyenik.</p></div>
+<div class="wy"><span class="big" aria-hidden="true">💛</span><h3>Kendi çocuğu gibi</h3><p>Öğretmenlerimiz ve yöneticilerimiz işini severek yapıyor; her çocuğa kendi çocuğu gibi bakıyor.</p></div>
+<div class="wy"><span class="big" aria-hidden="true">📍</span><h3>Ulaşımı kolay</h3><p>Beştepe'nin merkezinde, ulaşımı kolay bir konumda. <span class="ph">Servis bilgisi eklenecek</span></p></div>
+</div></div></section>
+
+<section style="padding-top:0" id="saatler"><div class="wrap">
+<div class="head"><p class="eb">Çalışma saatlerimiz</p><h2>Cumartesi de açığız</h2></div>
+<div class="hrs" id="hrs"></div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+<div class="head"><p class="eb">Sık sorulanlar</p><h2>Veliler soruyor</h2></div>
+<div class="faq">
+<details open><summary>LUDO ne demek?</summary><p>Liderlik, Uyum ve Deha Okulu. Adımız hem bu üç değeri hem de çocukların sevdiği klasik kutu oyununu anlatıyor.</p></details>
+<details><summary>Kaç yaş çocukları kabul ediyorsunuz?</summary><p><span class="ph">Yaş grupları ve sınıflar eklenecek</span></p></details>
+<details><summary>Kurum anlaşmalarınız var mı?</summary><p>Evet, çeşitli kurumlarla anlaşmalarımız bulunuyor. <span class="ph">Anlaşmalı kurumlar ve indirim oranları eklenecek</span></p></details>
+<details><summary>Ücretler nasıl?</summary><p><span class="ph">Aylık ücret ve branş dersleri bilgisi eklenecek</span></p></details>
+</div></div></section>
+
+<section class="contact" id="iletisim"><div class="wrap cg">
+<div><p class="eb">Ön kayıt ve ziyaret</p><h2>Nasıl bir nesil yetiştirdiğimizi <span>gelin görün</span></h2><p class="s">Formu doldurun, sizi arayalım ve okul ziyaretiniz için gün ayarlayalım.</p>
+<div class="info">
+<div><span>Adres</span><b>Beştepe Mah. Misket Sk. No:5/1, Yenimahalle / Ankara · <a href="https://www.google.com/maps/search/?api=1&amp;query=39.929619%2C32.8163651" target="_blank" rel="noopener">Haritada aç</a></b></div>
+<div><span>Telefon</span><b class="num"><a href="tel:+905425452907">0542 545 29 07</a></b></div>
+<div><span>Saatler</span><b>Pazartesi–Cumartesi 08.00–19.00</b></div>
+<div><span>Instagram</span><b><a href="https://www.instagram.com/ludoanaokulu/" target="_blank" rel="noopener">@ludoanaokulu</a></b></div>
+</div></div>
+<form id="f" novalidate>
+<h3>Ön kayıt ve ziyaret</h3>
+<div class="r2"><div class="f"><label for="pn2">Veli adı soyadı</label><input id="pn2" autocomplete="name" placeholder="Adınız soyadınız"></div><div class="f"><label for="pt">Telefon</label><input id="pt" type="tel" autocomplete="tel" placeholder="05xx xxx xx xx"></div></div>
+<div class="r2"><div class="f"><label for="cn">Çocuğun adı</label><input id="cn" placeholder="Çocuğunuzun adı"></div><div class="f"><label for="cb">Doğum tarihi</label><input id="cb" type="month"></div></div>
+<div class="f"><label for="cg">Konu</label><select id="cg"><option>Okul ziyareti</option><option>Ön kayıt</option><option>Kurum anlaşması</option><option>Ücret bilgisi</option></select></div>
+<div class="f"><label for="nt">Notunuz</label><textarea id="nt" rows="2" placeholder="Merak ettikleriniz"></textarea></div>
+<label class="kv" for="kv"><input type="checkbox" id="kv"><span>Kişisel verilerimin kayıt amacıyla işlenmesine ilişkin aydınlatma metnini okudum.</span></label>
+<p class="er" id="er" hidden></p>
+<button class="btn" type="submit">Gönder</button>
+<p class="ok" id="ok" hidden></p>
+</form>
+</div></section>
+<footer><div class="wrap"><span>© 2026 T.C. MEB Özel Ludo Anaokulu · Beştepe / Yenimahalle</span><span>KVKK aydınlatma metni</span></div></footer>
+
+<script>
+(function(){
+// Yayına alırken okulun WhatsApp numarasını yazın (ör. '905425452907'). Boşken form önizleme modunda çalışır.
+var WHATSAPP='';
+function $(i){return document.getElementById(i)}
+var COL=['var(--red)','var(--blue)','var(--yellow)','var(--green)'],SOFT=['#fde3e1','#e1ecfb','#fdf0cf','#e5f1e2'];
+
+// LUDO tiles
+var T=[['L','Liderlik','Kendine güvenen, sorumluluk alan, örnek olan çocuklar.'],['U','Uyum','Arkadaşıyla, ailesiyle, doğayla uyum içinde yaşamak.'],['D','Deha','Her çocuğun içindeki dehayı merakla keşfetmek.'],['O','Okulu','Hepsinin buluştuğu yer: Ludo Anaokulu.']];
+var tl=$('tiles');T.forEach(function(t,i){var b=document.createElement('button');b.type='button';b.className='tile';b.setAttribute('aria-pressed','false');b.style.setProperty('--c',COL[i]);b.setAttribute('aria-label',t[0]+': '+t[1]);
+ b.innerHTML='<div class="ti"><div class="fc fr"></div><div class="fc bk"><div><b></b><span></span></div></div></div>';b.querySelector('.fr').textContent=t[0];b.querySelector('.bk b').textContent=t[1];b.querySelector('.bk span').textContent=t[2];
+ b.onclick=function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true')};tl.appendChild(b)});
+
+// board — 16 perimeter squares, clockwise from bottom-left
+var P=[[5,1],[5,2],[5,3],[5,4],[5,5],[4,5],[3,5],[2,5],[1,5],[1,4],[1,3],[1,2],[1,1],[2,1],[3,1],[4,1]];
+var S=[['🏁','Başlangıç: Okul kapısı','Sabah kapıda güler yüzle karşılanıyoruz. Haydi, okulumuzu gezelim!'],
+['🤸','Spor','Branş öğretmenlerimizle hareket, denge ve takım oyunları.'],
+['🎨','Sanat atölyesi','Boya, kil, kolaj. Her çocuk küçük bir sanatçı.'],
+['🔬','Bilim','Deneylerle “neden?” sorularının peşine düşüyoruz.'],
+['🥽','Sanal gerçeklik','VR gözlüklerimizle ormanlarda, uzayda, okyanusta geziyoruz!'],
+['🩺','Sağlık takibi','Çocuklarımızın sağlığı doktor desteğiyle takip ediliyor.'],
+['🥑','Beslenme','Sağlıklı, dengeli ve lezzetli menüler; mutfakta usta eller.'],
+['🦁','Liderlik','Sınıf görevleri, sunumlar, söz alma: kendine güvenen çocuklar.'],
+['🤝','Uyum','Paylaşmak, sıra beklemek, birlikte oynamak.'],
+['💡','Deha','Akıl oyunları ve problem çözme etkinlikleri.'],
+['🎵','Müzik ve drama','Şarkılar, ritim ve sahne. Kendini ifade etmenin keyfi.'],
+['🛡️','Güvenlik','Bina girişinden oyun alanına, her ayrıntı çocuklarımız için düşünüldü.'],
+['🛝','Oyun alanı','Kaymak, tırmanmak, koşmak; serbest oyun da bir öğrenme.'],
+['🇹🇷','Değerlerimiz','Atatürk\'ü, bayramlarımızı ve değerlerimizi birlikte yaşıyoruz.'],
+['🤝','Kurum anlaşmaları','Anlaşmalı kurum çalışanlarına özel avantajlar.'],
+['🎓','Okula hazır!','Liderlik, uyum ve deha: ilkokula hazır, mutlu çocuklar.']];
+var bd=$('board'),cells=[],pos=0,seen={0:1};
+P.forEach(function(p,i){var d=document.createElement('div');d.className='sq';d.style.gridRow=p[0];d.style.gridColumn=p[1];d.style.setProperty('--c',COL[i%4]);d.textContent=S[i][0];d.title=S[i][1];bd.appendChild(d);cells.push(d)});
+function place(){cells.forEach(function(c,i){var t=c.querySelector('.tk');if(t)t.remove();c.classList.toggle('v',!!seen[i])});var tk=document.createElement('span');tk.className='tk';tk.setAttribute('aria-hidden','true');cells[pos].appendChild(tk)}
+function show(){var s=S[pos],c=$('gc');c.style.setProperty('--c',COL[pos%4]);c.style.setProperty('--cs',SOFT[pos%4]);$('gs').textContent=pos===0?'Başlangıç':pos+'. kare';$('gi').textContent=s[0];$('gh').textContent=s[1];$('gp').textContent=s[2];
+ var n=Object.keys(seen).length;$('gpr').textContent=n===16?'🏆 Tüm okulu gezdiniz! Şimdi sıra gerçeğinde.':n+' / 16 kare gezildi'}
+place();show();
+var busy=false,FACES=['⚀','⚁','⚂','⚃','⚄','⚅'];
+$('die').onclick=function(){if(busy)return;busy=true;var r=1+Math.floor(Math.random()*6),d=$('die');d.classList.remove('roll');void d.offsetWidth;d.classList.add('roll');d.textContent=FACES[r-1];$('dmsg').textContent=r+' geldi!';
+ var k=0;var iv=setInterval(function(){pos=(pos+1)%16;place();k++;if(k===r){clearInterval(iv);seen[pos]=1;place();show();busy=false;$('dmsg').textContent=r+' geldi! Tekrar at'}},260)};
+
+// hours
+var H=[['Pzt','08.00–19.00'],['Sal','08.00–19.00'],['Çar','08.00–19.00'],['Per','08.00–19.00'],['Cum','08.00–19.00'],['Cmt','08.00–19.00'],['Paz','Kapalı']];
+var hr=$('hrs'),td=(new Date().getDay()+6)%7;H.forEach(function(h,i){var d=document.createElement('div');d.className='hd'+(i===td?' today':'')+(i===6?' off':'');d.innerHTML='<b></b><span class="num"></span>';d.querySelector('b').textContent=h[0]+(i===td?' · bugün':'');d.querySelector('span').textContent=h[1];hr.appendChild(d)});
+
+// form
+$('f').addEventListener('submit',function(e){e.preventDefault();var er=$('er'),ok=$('ok');er.hidden=true;ok.hidden=true;
+ var pn=$('pn2').value.trim(),pt=$('pt').value.trim();
+ if(!pn||pt.replace(/\D/g,'').length<10){er.textContent='Lütfen adınızı ve geçerli bir telefon numarası yazın.';er.hidden=false;(pn?$('pt'):$('pn2')).focus();return}
+ if(!$('kv').checked){er.textContent='Devam etmek için aydınlatma metnini onaylayın.';er.hidden=false;$('kv').focus();return}
+ var txt='Merhaba, Ludo Anaokulu hakkında bilgi almak istiyorum.\nVeli: '+pn+'\nTelefon: '+pt+'\nÇocuk: '+($('cn').value.trim()||'-')+' ('+($('cb').value||'doğum tarihi belirtilmedi')+')\nKonu: '+$('cg').value+($('nt').value.trim()?'\nNot: '+$('nt').value.trim():'');
+ if(WHATSAPP){ok.textContent='Bilgileriniz hazır. Göndermek için dokunun: ';var a=document.createElement('a');a.href='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(txt);a.target='_blank';a.rel='noopener';a.className='btn';a.textContent='WhatsApp’ta gönder';ok.appendChild(a)}
+ else ok.textContent='Teşekkürler '+pn+'! Bu bir önizlemedir; yayındaki sitede talebiniz WhatsApp ile okula iletilecek.';
+ ok.hidden=false});
+})();
+</script>
+</body></html>
